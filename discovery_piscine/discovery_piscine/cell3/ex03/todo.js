@@ -14,7 +14,6 @@ const choreTable = document.getElementById('todo-body');
 let chLS = localStorage.getItem("chores");
 
 
-
 // On page load
 document.body.onload = () => {
     if(!chLS) {
@@ -54,3 +53,9 @@ for(let i = 0; i < chores.length; i++) {
     eldiv.innerHTML = chore_display;
     choreTable.appendChild(eldiv);
 }
+
+const clear_btn = document.getElementById('clear-btn');
+
+clear_btn.addEventListener('click', () => {
+    window.location.reload();
+})

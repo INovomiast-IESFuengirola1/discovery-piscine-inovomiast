@@ -22,13 +22,15 @@
             z-index: 1;
             background-color: red;
             border-radius: 50%;
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             display: flex;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            z-index: 1;
+            border: 2px solid white;
         }
         .ballon:hover {
             cursor: pointer;
@@ -37,8 +39,25 @@
             display: flex;
             transform: translateY(200px);
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            z-index: 2;
         }
 
+        .pops {
+            display: flex;
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .pops h3{
+            font-size: 50px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: white;
+            text-shadow: 5px 5px 17px #000000;
+
+        }
+        
     </style>
 </head>
 <body>
@@ -48,6 +67,10 @@
     </div>
     <!-- Ballon -->
     <div id="ballon" class="ballon">
+    </div>
+    <!-- Pop's Performed -->
+    <div class="pops">
+        <h3 id="bpops">The ballon was Popped: <span id="number-of-pops">0</span> times!</h3>
     </div>
     <!-- Script Link -->
     <script src="./main.js"></script>

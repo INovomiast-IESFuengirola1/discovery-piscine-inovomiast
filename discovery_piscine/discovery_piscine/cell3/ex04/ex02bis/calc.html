@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Función para calcular el resultado
+      function calcular() {
+        var operador = $("#operador").val();
+        var num1 = parseInt($("#num1").val());
+        var num2 = parseInt($("#num2").val());
+        var resultado;
+
+        // Verificar que los campos sean enteros positivos
+        if (isNaN(num1) || isNaN(num2) || num1 < 0 || num2 < 0) {
+          alert("Error :(");
+          return;
+        }
+
+        // Realizar el cálculo según el operador seleccionado
+        switch (operador) {
+          case "+":
+            resultado = num1 + num2;
+            break;
+          case "-":
+            resultado = num1 - num2;
+            break;
+          case "*":
+            resultado = num1 * num2;
+            break;
+          case "/":
+            // Verificar división por cero
+            if (num2 === 0) {
+              alert("It's over 9000!");
+              return;
+            }
+            resultado = num1 / num2;
+            break;
+          case "%":
+            // Verificar módulo por cero
+            if (num2 === 0) {
+              alert("It's over 9000!");
+              return;
+            }
+            resultado = num1 % num2;
+            break;
+          default:
+            alert("Error :(");
+            return;
+        }
+
+        // Mostrar resultado en alerta y consola
+        alert("El resultado es: " + resultado);
+        console.log("El resultado es: " + resultado);
+      }
+
+      // Manejar el evento click del botón "Try me!"
+      $("#calcular").click(function(event) {
+        event.preventDefault();
+        calcular();
+      });
+    });
+  </script>
+</head>
+<body>
+  <form>
+    <label for="num1">Miembro izquierdo:</label>
+    <input type="text" id="num1" name="num1" pattern="[0-9]+" required>
+    <br>
+    <label for="operador">Operador:</label>
+    <select id="operador" name="operador">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+      <option value="%">%</option>
+    </select>
+    <br>
+    <label for="num2">Miembro derecho:</label>
+    <input type="text" id="num2" name="num2" pattern="[0-9]+" required>
+    <br>
+    <input type="submit" id="calcular" value="Try me!">
+  </form>
+</body>
+</html>

@@ -58,4 +58,10 @@ const clear_btn = document.getElementById('clear-btn');
 
 clear_btn.addEventListener('click', () => {
     window.location.reload();
-})
+});
+
+// function genChore() {
+//     let tarea = prompt("Titulo de la tarea:");
+//     var tarea_display = document.createElement('p').innerHTML = tarea;
+//     document.body.append(tarea_display);
+// }
